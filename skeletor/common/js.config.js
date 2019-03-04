@@ -24,16 +24,14 @@ module.exports = {
     input: [
         'source/js/main.js'
     ],
-    output: (destPath, isModern = true) => [
-        {
-            dir: destPath,
-            format: 'es'
-        },
-        {
-            dir: isModern ? destPath : path.join(destPath, 'nomodule'),
-            format: isModern ? 'es' : 'system'
-        }
-    ],
+    output: function(destPath, isModern = true) {
+        return [
+            {
+                dir: isModern ? destPath : path.join(destPath, 'nomodule'),
+                format: isModern ? "es" : "iife"
+            }
+        ]
+    },
     plugins: (isModern = true) => [
         require('rollup-plugin-replace')({
             ENVIRONMENT: () => JSON.stringify(process.env.NODE_ENV || 'development'),
@@ -45,10 +43,7 @@ module.exports = {
                 'node_modules/@degjs/**'
             ],
             babelrc: false,
-            presets: isModern ? modernBabelPresets : legacyBabelPresets,
-            plugins: [
-                '@babel/plugin-syntax-dynamic-import'
-            ],
+            presets: isModern ? modernBabelPresets : legacyBabelPresets
         }),
         require('rollup-plugin-node-resolve')({
             browser: true
