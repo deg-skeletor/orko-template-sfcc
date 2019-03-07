@@ -8,7 +8,7 @@ module.exports = {
             name: '@deg-skeletor/plugin-postcss',
             config: {
                 files: [
-                    ...files(`${outputDir}/css/`)
+                    ...files(`${outputDir}`)
                 ],
                 plugins
             }
