@@ -70,7 +70,8 @@ module.exports = {
             {
                 patterns: 'pages/*',
                 dest: './export',
-                includeHeadFoot: true
+                includeHeadFoot: true,
+                flatten: false
             }
         ],
         assetPathReplacements: [
