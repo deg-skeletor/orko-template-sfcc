@@ -1,5 +1,3 @@
-const path = require('path');
-
 const legacyBabelPresets = [
     [
         '@babel/preset-env',
@@ -27,10 +25,11 @@ module.exports = {
     output: function(destPath, isModern = true) {
         return [
             {
-                dir: isModern ? destPath : path.join(destPath, 'nomodule'),
-                format: isModern ? "es" : "iife"
+                dir: destPath,
+                format: isModern ? 'es' : 'iife',
+                entryFileNames: isModern ? '[name].js' : '[name]-nomodule.js'
             }
-        ]
+        ];
     },
     plugins: (isModern = true) => [
         require('rollup-plugin-replace')({

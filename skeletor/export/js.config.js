@@ -1,6 +1,6 @@
 const {input, output, plugins} = require('../common/js.config.js');
 const terser = require('rollup-plugin-terser').terser();
-const outputDir = 'export/js';
+const outputDir = 'export';
 
 module.exports = {
 	name: 'js',
