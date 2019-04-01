@@ -8,8 +8,8 @@ module.exports = {
             name: '@deg-skeletor/plugin-copy',
             config: {
                 directories: directories({
-					imagesDestPath: `${outputDir}/images/`,
-					fontsDestPath: `${outputDir}/fonts/`
+					imagesDestPath: `${outputDir}`,
+					fontsDestPath: `${outputDir}`
 				})
             }
         }

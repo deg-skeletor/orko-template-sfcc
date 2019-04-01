@@ -14,7 +14,6 @@ module.exports = {
     	require('postcss-custom-media'),
    		require('postcss-color-mod-function'),
     	require('postcss-nested'),
-    	require('autoprefixer'),
-		require('cssnano')
+    	require('autoprefixer')
 	]
 };

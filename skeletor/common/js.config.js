@@ -33,7 +33,7 @@ function createRollupOutput(outputFile, isModern = true) {
     ]
 }
 
-function createRollupPlugins(isModern, minify){
+function createRollupPlugins(isModern, minify) {
     const plugins = [
         require('rollup-plugin-replace')({
             ENVIRONMENT: () => JSON.stringify(process.env.NODE_ENV || 'development'),
@@ -55,7 +55,7 @@ function createRollupPlugins(isModern, minify){
         })
     ];
 
-    if(minify) {
+    if (minify) {
         plugins.push(require('rollup-plugin-terser').terser());
     }
 
@@ -63,8 +63,8 @@ function createRollupPlugins(isModern, minify){
 }
 
 function getOutputFilepath(outputFilename, destPath, isModern) {
-    const filename = isModern ? 
-        outputFilename : 
+    const filename = isModern ?
+        outputFilename :
         `${path.basename(outputFilename, '.js')}-nomodule.js`;
 
     return path.join(destPath, filename);
@@ -79,7 +79,7 @@ function createRollupConfigForFile(inputFile, outputFile, isModern, minify) {
 }
 
 module.exports = {
-    rollupConfig: function(destPath, minify = false) {
+    rollupConfig: function (destPath, minify = false) {
         return Object.keys(rollupFiles).reduce((accum, inputFile) => {
 
             const outputFile = getOutputFilepath(rollupFiles[inputFile], destPath, true);
@@ -87,7 +87,7 @@ module.exports = {
 
             const legacyOutputFile = getOutputFilepath(rollupFiles[inputFile], destPath, false);
             accum.push(createRollupConfigForFile(inputFile, legacyOutputFile, false, minify));
-            
+
             return accum;
         }, []);
     }

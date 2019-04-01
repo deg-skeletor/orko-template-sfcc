@@ -12,7 +12,7 @@
         "@deg-skeletor/core": "^1.0.0",
         "@deg-skeletor/plugin-copy": "^1.0.2",
         "@deg-skeletor/plugin-express": "^1.0.0",
-        "@deg-skeletor/plugin-patternlab": "^3.1.0",
+        "@deg-skeletor/plugin-patternlab": "^3.2.0",
         "@deg-skeletor/plugin-postcss": "^1.0.0",
         "@deg-skeletor/plugin-rollup": "^2.0.2",
         "@deg-skeletor/plugin-watch": "^1.0.0",
