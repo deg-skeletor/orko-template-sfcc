@@ -1,5 +1,7 @@
 const path = require('path');
 
+const assetMap = {};
+
 function mapUrl(asset, dir) {
 	if(assetMap.hasOwnProperty(asset.url)) {
 		return assetMap[asset.url];
