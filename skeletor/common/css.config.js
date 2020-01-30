@@ -1,5 +1,13 @@
 const path = require('path');
 
+function mapUrl(asset, dir) {
+	if(assetMap.hasOwnProperty(asset.url)) {
+		return assetMap[asset.url];
+	}
+
+	return asset.url;
+}
+
 module.exports = {
 	files: destPath => [
 		{
@@ -14,7 +22,9 @@ module.exports = {
     	require('postcss-custom-media'),
    		require('postcss-color-mod-function'),
 		require('postcss-nesting'),
-		require('postcss-url'),
+		require('postcss-url')({
+			url: mapUrl
+		}),
     	require('autoprefixer')
 	]
 };
