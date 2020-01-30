@@ -13,7 +13,7 @@ module.exports = {
     	require('postcss-custom-selectors'),
     	require('postcss-custom-media'),
    		require('postcss-color-mod-function'),
-    	require('postcss-nesting'),
+		require('postcss-nesting'),
     	require('autoprefixer')
 	]
 };
